@@ -46,6 +46,14 @@ resource "google_kms_crypto_key" "key_ephemeral" {
   labels = var.labels
 }
 
+resource "google_kms_key_ring_import_job" "import-job" {
+  key_ring = google_kms_key_ring.keyring.id
+  import_job_id = "my-import-job"
+
+  import_method = "RSA_OAEP_3072_SHA1_AES_256"
+  protection_level = "SOFTWARE"
+}
+
 resource "google_kms_crypto_key_iam_binding" "owners" {
   count         = length(var.set_owners_for)
   role          = "roles/owner"
