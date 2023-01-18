@@ -47,7 +47,7 @@ resource "google_kms_crypto_key" "key_ephemeral" {
 }
 
 resource "google_kms_key_ring_import_job" "import-job" {
-  key_ring = google_kms_key_ring.keyring.id
+  key_ring = google_kms_key_ring.key_ring.id
   import_job_id = "my-import-job"
 
   import_method = "RSA_OAEP_3072_SHA1_AES_256"
