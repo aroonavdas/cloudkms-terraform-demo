@@ -62,10 +62,6 @@ the resources of this module:
 - Cloud KMS Admin: `roles/cloudkms.admin` or
 - Owner: `roles/owner`
 
-The [Project Factory module][project-factory-module] and the
-[IAM module][iam-module] may be used in combination to provision a
-service account with the necessary roles applied.
-
 ### APIs
 
 A project with the following APIs enabled must be used to host the
