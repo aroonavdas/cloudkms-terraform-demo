@@ -20,6 +20,11 @@ variable "keys" {
   default     = []
 }
 
+variable "import_key_material" {
+    description = "Import key material?"
+    type        = string
+}
+
 variable "prevent_destroy" {
   description = "Set the prevent_destroy lifecycle attribute on keys."
   default     = true
