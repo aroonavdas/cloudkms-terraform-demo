@@ -40,15 +40,6 @@ Cloud KMS demo for managing a keyring, zero or more keys in the keyring, and IAM
 
 ## Requirements
 
-These sections describe requirements for using this module.
-
-### Software
-
-The following dependencies must be available:
-
-- [Terraform](https://www.terraform.io/downloads.html) >= 0.13.0
-- [Terraform Provider for GCP][terraform-provider-gcp] plugin v3.0
-
 ### Service Account
 
 A service account with one of the following roles must be used to provision
@@ -67,6 +58,3 @@ A project with the following APIs enabled must be used to host the
 resources of this module:
 
 - Google Cloud Key Management Service: `cloudkms.googleapis.com`
-
-The [Project Factory module][project-factory-module] can be used to
-provision a project with the necessary APIs enabled.
