@@ -17,7 +17,6 @@ variable "keyring" {
 variable "keys" {
   description = "Key names."
   type        = list(string)
-  default     = []
 }
 
 variable "import_key_material" {
