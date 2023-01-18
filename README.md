@@ -12,7 +12,7 @@ Cloud KMS demo for managing a keyring, zero or more keys in the keyring, and IAM
 |------|-------------|------|---------|:--------:|
 | decrypters | List of comma-separated owners for each key declared in set\_decrypters\_for. | `list(string)` | `[]` | no |
 | encrypters | List of comma-separated owners for each key declared in set\_encrypters\_for. | `list(string)` | `[]` | no |
-| key\_algorithm | The algorithm to use when creating a version based on this template. See the [documentation] (https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm) for possible inputs. | `string` | `"GOOGLE_SYMMETRIC_ENCRYPTION"` | no |
+| key\_algorithm | The algorithm to use when creating a version based on this template. See the [documentation](https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm) for possible inputs. | `string` | `"GOOGLE_SYMMETRIC_ENCRYPTION"` | no |
 | key\_protection\_level | The protection level to use when creating a version based on this template. Default value: "SOFTWARE" Possible values: ["SOFTWARE", "HSM"] | `string` | `"SOFTWARE"` | no |
 | key\_rotation\_period | n/a | `string` | `"100000s"` | no |
 | keyring | Keyring name. | `string` | n/a | yes |
