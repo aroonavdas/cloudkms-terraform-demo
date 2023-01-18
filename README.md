@@ -17,7 +17,7 @@ Cloud KMS demo for managing a keyring, zero or more keys in the keyring, and IAM
 | key\_rotation\_period | n/a | `string` | `"100000s"` | no |
 | keyring | Keyring name. | `string` | n/a | yes |
 | keys | Key names. | `list(string)` | `[]` | no |
-| import\_key\_material | Will key material be imported? | `string` | n/a | yes |
+| import\_key\_material | Will key material be imported? Possible values: yes/no | `string` | n/a | yes |
 | labels | Labels, provided as a map | `map(string)` | `{}` | no |
 | location | Location for the keyring. | `string` | n/a | yes |
 | owners | List of comma-separated owners for each key declared in set\_owners\_for. | `list(string)` | `[]` | no |
