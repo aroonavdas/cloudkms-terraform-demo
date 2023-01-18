@@ -51,6 +51,7 @@ resource "google_kms_crypto_key" "key_ephemeral" {
 }
 
 resource "google_kms_key_ring_import_job" "import-job" {
+  count = var.import_key_material == "yes" ? 1 : 0
   key_ring = google_kms_key_ring.key_ring.id
   import_job_id = "my-import-job"
 
