@@ -21,7 +21,7 @@ variable "keys" {
 
 variable "import_key_material" {
     description = "Import key material? (yes or no)"
-    type        = string
+    type        = list(string)
 }
 
 variable "prevent_destroy" {
