@@ -26,7 +26,7 @@ variable "import_key_material" {
 
 variable "prevent_destroy" {
   description = "Set the prevent_destroy lifecycle attribute on keys."
-  default     = true
+  default     = false
 }
 
 variable "purpose" {
