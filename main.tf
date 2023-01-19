@@ -14,8 +14,7 @@ resource "google_kms_crypto_key" "key" {
   key_ring        = google_kms_key_ring.key_ring.id
   rotation_period = var.key_rotation_period
   purpose         = var.purpose
-  skip_initial_version_creation = var.import_key_material == "yes" ? true : false
-
+  skip_initial_version_creation = var.import_key_material[count.index] == "yes" ? true : false
 
   lifecycle {
     prevent_destroy = true
@@ -35,8 +34,7 @@ resource "google_kms_crypto_key" "key_ephemeral" {
   key_ring        = google_kms_key_ring.key_ring.id
   rotation_period = var.key_rotation_period
   purpose         = var.purpose
-  skip_initial_version_creation = var.import_key_material == "yes" ? true : false
-
+  skip_initial_version_creation = var.import_key_material[count.index] == "yes" ? true : false
 
   lifecycle {
     prevent_destroy = false
@@ -51,7 +49,7 @@ resource "google_kms_crypto_key" "key_ephemeral" {
 }
 
 resource "google_kms_key_ring_import_job" "import-job" {
-  count = var.import_key_material == "yes" ? 1 : 0
+  count = contains(var.import_key_material, "yes")? 1 : 0
   key_ring = google_kms_key_ring.key_ring.id
   import_job_id = "my-import-job"
 
@@ -78,4 +76,11 @@ resource "google_kms_crypto_key_iam_binding" "encrypters" {
   role          = "roles/cloudkms.cryptoKeyEncrypter"
   crypto_key_id = local.keys_by_name[element(var.set_encrypters_for, count.index)]
   members       = compact(split(",", var.encrypters[count.index]))
+}
+
+terraform {
+  backend "gcs" {
+    bucket  = "terraform-state-aroonav"
+    prefix  = "terraform/state"
+  }
 }
