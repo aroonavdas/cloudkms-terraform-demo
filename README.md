@@ -48,7 +48,7 @@ openssl rand 32 > ${HOME}/test.bin
 
 export CLOUDSDK_PYTHON_SITEPACKAGES=1 
 
-gcloud kms keys versions import   --import-job **job_name**   --location **location**   --keyring **keyring_name**   --key **key_name**   --algorithm **algorithm**   --target-key-file **path**   --project **project_name**
+gcloud kms keys versions import   --import-job *job_name*   --location *location*   --keyring *keyring_name*   --key *key_name*   --algorithm *algorithm*   --target-key-file *path*   --project *project_name*
 
 ## Outputs
 
