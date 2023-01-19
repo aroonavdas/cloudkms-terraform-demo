@@ -42,6 +42,14 @@ Each owners, encrypters and decrypters entry can have one of the following value
 
 ***domain:{domain}:*** A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
 
+### Commands to run for importing key material
+
+openssl rand 32 > ${HOME}/test.bin 
+
+export CLOUDSDK_PYTHON_SITEPACKAGES=1 
+
+gcloud kms keys versions import   --import-job **job_name**   --location **location**   --keyring **keyring_name**   --key **key_name**   --algorithm **algorithm**   --target-key-file **path**   --project **project_name**
+
 ## Outputs
 
 | Name | Description |
