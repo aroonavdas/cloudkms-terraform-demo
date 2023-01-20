@@ -19,16 +19,6 @@ variable "keys" {
   type        = list(string)
 }
 
-variable "import_key_material" {
-    description = "Import key material? (yes or no)"
-    type        = list(string)
-}
-
-variable "prevent_destroy" {
-  description = "Set the prevent_destroy lifecycle attribute on keys."
-  default     = false
-}
-
 variable "purpose" {
   type        = string
   description = "The immutable purpose of the CryptoKey. Possible values are ENCRYPT_DECRYPT, ASYMMETRIC_SIGN, and ASYMMETRIC_DECRYPT."
