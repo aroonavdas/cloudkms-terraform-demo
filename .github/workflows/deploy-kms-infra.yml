@@ -7,18 +7,14 @@ on:
     types: [opened, reopened]
 
 env:
+  # sample variable
   PROJECT_ID: aroonav-demos
 
 jobs:
-  terraform-init:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: project-alpha/infra-test
     container:
       image: hashicorp/terraform:1.3.3
-      volumes:
-        - /data
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,8 +32,21 @@ jobs:
         id: deploy
         run: |
           terraform apply /data/demo.tfplan
- destroy:
- - name: Destroy Infrastructure
+  destroy:
+    if: ${{ vars.DESTROY == 'true' }}
+    needs: deploy
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:1.3.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Google Auth
+        id: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.APPLICATION_DEFAULT_CREDENTIALS }}'
+      - name: Destroy Infrastructure
         id: destroy
         run: |
           terraform init
