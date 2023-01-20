@@ -8,7 +8,7 @@ on:
 
 env:
   # sample variable
-  PROJECT_ID: aroonav-demos
+  PROJECT_ID: project1-369205
 
 jobs:
   deploy:
