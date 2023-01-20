@@ -50,7 +50,7 @@ resource "google_kms_crypto_key" "key_ephemeral" {
   labels = var.labels
 }
 
-# create job for importing key material. Actual import needs to happen through the CLI by invoking the job here.
+# create job for importing key material. Actual import needs to happen through the CLI by invoking the job.
 resource "google_kms_key_ring_import_job" "import-job" {
   count = contains(var.import_key_material, "yes")? 1 : 0
   key_ring = google_kms_key_ring.key_ring.id
