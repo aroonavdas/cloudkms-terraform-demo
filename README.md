@@ -17,11 +17,9 @@ Cloud KMS demo for managing a keyring, zero or more keys in the keyring, and IAM
 | key\_rotation\_period | n/a | `string` | `"100000s"` | no |
 | keyring | Keyring name. | `string` | n/a | yes |
 | keys | Key names. | `list(string)` | `[]` | no |
-| import\_key\_material | Will key material be imported? Possible values: yes/no for each key | `list(string)` | n/a | yes |
 | labels | Labels, provided as a map | `map(string)` | `{}` | no |
 | location | [Location](https://cloud.google.com/kms/docs/locations) for the keyring. | `string` | n/a | yes |
 | owners | List of comma-separated owners for each key declared in set\_owners\_for. | `list(string)` | `[]` | no |
-| prevent\_destroy | Set the prevent\_destroy lifecycle attribute on keys. | `bool` | `true` | no |
 | project\_id | Project id where the keyring will be created. | `string` | n/a | yes |
 | purpose | The immutable purpose of the CryptoKey. Possible values are ENCRYPT\_DECRYPT, ASYMMETRIC\_SIGN, and ASYMMETRIC\_DECRYPT. | `string` | `"ENCRYPT_DECRYPT"` | no |
 | set\_decrypters\_for | Name of keys for which decrypters will be set. | `list(string)` | `[]` | no |
