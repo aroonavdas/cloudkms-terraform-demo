@@ -83,7 +83,7 @@ resource "google_kms_crypto_key_iam_binding" "encrypters" {
 
 terraform {
   backend "gcs" {
-    bucket  = "terraform-state-kms-aroonav"
+    bucket  = "aroonavtfdemo"
     prefix  = "terraform/state"
   }
 }
