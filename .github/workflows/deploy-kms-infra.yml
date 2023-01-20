@@ -27,11 +27,11 @@ jobs:
         run: (terraform init)
       - name: Plan
         run: |
-          terraform plan -out /data/demo.tfplan
+          terraform plan
       - name: Deploy Infrastructure
         id: deploy
         run: |
-          terraform apply /data/demo.tfplan
+          terraform apply
   destroy:
     if: ${{ vars.DESTROY == 'true' }}
     needs: deploy
