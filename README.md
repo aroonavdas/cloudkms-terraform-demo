@@ -2,7 +2,7 @@
 Cloud KMS demo for managing a keyring, zero or more keys in the keyring, and IAM role bindings on individual keys.
 
 - Create a KMS keyring in the provided project
-- Create zero or more keys in the keyring using KMS or imported key material
+- Create zero or more keys in the keyring using KMS and imported key material
 - Create IAM role bindings for owners, encrypters, decrypters
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
