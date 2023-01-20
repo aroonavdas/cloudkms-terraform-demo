@@ -9,6 +9,7 @@ resource "google_kms_key_ring" "key_ring" {
   location = var.location
 }
 
+# Creates keys with default key material
 resource "google_kms_crypto_key" "key" {
   count           = length(var.keys)
   name            = var.keys[count.index]
@@ -26,6 +27,7 @@ resource "google_kms_crypto_key" "key" {
   labels = var.labels
 }
 
+# Creates keys for which key material needs to be imported later through the import job created in the next resource block
 resource "google_kms_crypto_key" "key_with_imported_material" {
   count           = length(var.keys)
   name            = format("%s_with_imported_material", var.keys[count.index])
@@ -43,7 +45,7 @@ resource "google_kms_crypto_key" "key_with_imported_material" {
   labels = var.labels
 }
 
-# create job for importing key material. Actual import needs to happen through the CLI by invoking the job.
+# creates the job for importing key material. Actual import needs to happen through the CLI by invoking the job.
 resource "google_kms_key_ring_import_job" "import-job" {
   key_ring = google_kms_key_ring.key_ring.id
   import_job_id = "my-import-job"
