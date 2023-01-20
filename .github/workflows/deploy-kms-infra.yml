@@ -31,7 +31,7 @@ jobs:
       - name: Deploy Infrastructure
         id: deploy
         run: |
-          terraform apply
+          terraform apply -auto-approve
   destroy:
     if: ${{ vars.DESTROY == 'true' }}
     needs: deploy
